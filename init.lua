@@ -1019,5 +1019,16 @@ vim.opt['tabstop'] = 4
 vim.opt['shiftwidth'] = 4
 vim.opt['relativenumber'] = true
 
+local cppman = require 'cppman'
+cppman.setup()
+
+vim.keymap.set('n', '<leader>cm', function()
+  cppman.open_cppman_for(vim.fn.expand '<cword>')
+end)
+
+-- Open search box
+vim.keymap.set('n', '<leader>cc', function()
+  cppman.input()
+end)
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
